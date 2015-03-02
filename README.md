@@ -21,7 +21,7 @@ Assuming the date is 17:16:20 on Saturday, 23 November 1963 (in GMT). (This may 
 ```elixir
 right_now = Tardis.now()
 
-# => {{1963, 11, 23}, {17, 16, 20.000}}
+# => {{1963, 11, 23}, {17, 16, 20}}
 ```
 
 **Relative...** ...ly Easy
@@ -31,10 +31,10 @@ right_now = Tardis.now()
 import Tardis
 
 right_now = now()
-# => {{1963, 11, 23}, {17, 16, 20.000}}
+# => {{1963, 11, 23}, {17, 16, 20}}
 
 1 |> seconds |> ago
-# => {{1963, 11, 23}, {17, 16, 19.000}}
+# => {{1963, 11, 23}, {17, 16, 19}}
 
 ```
 
@@ -48,7 +48,7 @@ right_now = now()
 
 ```elixir
 1 |> second |> ago
-# => {{1963, 11, 23}, {17, 16, 19.000}}
+# => {{1963, 11, 23}, {17, 16, 19}}
 ```
 
 **Dimension...** ...ally Rich
@@ -59,7 +59,7 @@ two_weeks = 2 |> weeks
 # => {{0, 1, 15}, {0, 0, 0}}
 
 two_weeks |> ago
-# => {{1963, 11, 9}, {17, 16, 20.000}}
+# => {{1963, 11, 9}, {17, 16, 20}}
 ```
 
 Oh look two weeks gives 15 days and 1 month... What the...
