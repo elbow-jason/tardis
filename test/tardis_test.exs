@@ -35,5 +35,26 @@ defmodule TardisConversionTest do
     assert to_seconds({{ 2000, 1, 1}, {0, 0, 0}}) == 63113904000
   end
 
+  test "days_to_date returns the correct date 3-tuple" do
+    assert days_to_date(0) == {0, 1, 1}
+    assert days_to_date(1) == {0, 1, 2}
+    assert days_to_date(717297) == {1963, 11, 23}
+  end
+
+  test "seconds_to_datetime return the correct date and time" do
+    assert seconds_to_datetime(0) == {{0, 1, 1}, {0, 0, 0}}
+    assert seconds_to_datetime(1) == {{0, 1, 1}, {0, 0, 1}}
+    assert seconds_to_datetime(63113904000) == {{ 2000, 1, 1}, {0, 0, 0}}
+  end
+
+  test "conversions for days work" do
+    assert 1 |> seconds_to_datetime |> to_seconds == 1
+  end
+
+  test "conversions for seconds work" do
+    assert 1 |> days_to_date |> to_days == 1
+  end
+
+
 
 end

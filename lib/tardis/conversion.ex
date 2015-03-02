@@ -17,6 +17,12 @@ defmodule Tardis.Conversion do
     to_seconds({@day_zero, {hr, min, sec}})
   end
 
+  def days_to_date(days) do
+    Cal.gregorian_days_to_date(days)
+  end
 
+  def seconds_to_datetime(seconds) do
+    Cal.gregorian_seconds_to_datetime(seconds)
+  end
 
 end
