@@ -1,9 +1,8 @@
 defmodule Tardis do
+  alias :calendar, as: Cal
 
   def now do
-    {{year, month, day}, {hours, minutes, seconds}} = :calendar.universal_time()
-    {{year, month, day}, {hours, minutes, seconds}, "GMT"}
+    Cal.universal_time()
   end
-
 
 end

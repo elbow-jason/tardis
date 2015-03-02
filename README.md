@@ -7,13 +7,11 @@ You already know what the TARDIS is. Let's see what it can do.
 **Time...** ...A Representation
 ------------------------------
 
-When using TARDIS dates are represented by a 3-item tuple:
+When using TARDIS dates are represented by a 2-item tuple (just like erlang):
 
 ```elixir
-{{year, month, day}, {hour, minute, second}, descriptor}
+{{year, month, day}, {hour, minute, second}}
 ```
-
-The ```descriptor``` is a string that represents timezone (i.e. ```"GMT"```) or a difference in time (```"delta"```).
 
 **And...** ...Some features
 --------------------------
@@ -23,7 +21,7 @@ Assuming the date is 17:16:20 on Saturday, 23 November 1963 (in GMT). (This may 
 ```elixir
 right_now = Tardis.now()
 
-# => {{1963, 11, 23}, {17, 16, 20.000}, "GMT"}
+# => {{1963, 11, 23}, {17, 16, 20.000}}
 ```
 
 **Relative...** ...ly Easy
@@ -33,10 +31,10 @@ right_now = Tardis.now()
 import Tardis
 
 right_now = now()
-# => {{1963, 11, 23}, {17, 16, 20.000}, "GMT"}
+# => {{1963, 11, 23}, {17, 16, 20.000}}
 
 1 |> seconds |> ago
-# => {{1963, 11, 23}, {17, 16, 19.000}, "GMT"}
+# => {{1963, 11, 23}, {17, 16, 19.000}}
 
 ```
 
@@ -50,7 +48,7 @@ right_now = now()
 
 ```elixir
 1 |> second |> ago
-# => {{1963, 11, 23}, {17, 16, 19.000}, "GMT"}
+# => {{1963, 11, 23}, {17, 16, 19.000}}
 ```
 
 **Dimension...** ...ally Rich
@@ -58,13 +56,15 @@ right_now = now()
 
 ```elixir
 two_weeks = 2 |> weeks
-# => {{0, 0, 14}, {0, 0, 0}, "delta"}
+# => {{0, 1, 15}, {0, 0, 0}}
 
 two_weeks |> ago
-# => {{1963, 11, 9}, {17, 16, 20.000}, "GMT"}
+# => {{1963, 11, 9}, {17, 16, 20.000}}
 ```
 
-Oh look two weeks gives 14 days and a descriptor of ```"delta"```.
+Oh look two weeks gives 15 days and 1 month... What the...
+
+Well, kiddo, in erlang's calendar (a Gregorian calendar) the first day was ```{0,1,1}``` which means that any date delta must be the date ```{0,1,1}``` applied to the intuitive magic number of units of time.
 
 And look at that! the ```ago``` function does some sort of subtraction from the current time.
 
