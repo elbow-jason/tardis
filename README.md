@@ -1,10 +1,10 @@
-Tardis
+TARDIS
 ======
 
 You already know what the tardis is. Let's see what it can do.
 
 
-**Time...** - A Representation
+**Time...** ...A Representation
 ------------------------------
 
 ```elixir
@@ -13,7 +13,7 @@ You already know what the tardis is. Let's see what it can do.
 
 The ```descriptor``` is a string that represents
 
-**And...** - Some features
+**And...** ...Some features
 --------------------------
 
 Assuming the date is 17:16:20 on Saturday, 23 November 1963 (in GMT). (This may in fact be an invalid date for many computers, but it's just an example. =/ )
@@ -24,7 +24,7 @@ right_now = Tardis.now()
 # => {{1963, 11, 23}, {17, 16, 20.000}, "GMT"}
 ```
 
-**Relative...** - ...ly Easy
+**Relative...** ...ly Easy
 ----------------------------
 
 ```elixir
