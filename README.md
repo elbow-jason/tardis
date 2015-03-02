@@ -7,11 +7,13 @@ You already know what the tardis is. Let's see what it can do.
 **Time...** ...A Representation
 ------------------------------
 
+When using TARDIS dates are represented by a 3-item tuple:
+
 ```elixir
 {{year, month, day}, {hour, minute, second}, descriptor}
 ```
 
-The ```descriptor``` is a string that represents
+The ```descriptor``` is a string that represents timezone (i.e. ```"GMT"```) or a difference in time (```"delta"```).
 
 **And...** ...Some features
 --------------------------
@@ -39,9 +41,11 @@ right_now = now()
 ```
 
 > "LOL. '```elixir 1 |> seconds |> ago```'. A plural 'seconds' for a singular '1'. Amateurish."
+
 -Some Punk
 
 > "Your block quotes don't scare me."
+
 -Jason
 
 ```elixir
@@ -60,9 +64,9 @@ two_weeks |> ago
 # => {{1963, 11, 9}, {17, 16, 20.000}, "GMT"}
 ```
 
-Oh look two weeks gives 14 days and a descriptor of "delta".
+Oh look two weeks gives 14 days and a descriptor of ```"delta"```.
 
-And look at that! the ```elixir ago``` function does some sort of subtraction from the current time.
+And look at that! the ```ago``` function does some sort of subtraction from the current time.
 
 **In...** ...touch with your feelings.
 --------------------------------------
