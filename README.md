@@ -64,7 +64,7 @@ two_weeks |> ago
 
 Oh look two weeks gives 15 days and 1 month... What the...
 
-Well, kiddo, in erlang's calendar (a Gregorian calendar) the first day was ```{0,1,1}``` which means that any date delta must be the date ```{0,1,1}``` applied to the intuitive magic number of units of time.
+Well, kiddo, in erlang's calendar (a Gregorian calendar) the first day (day 0) was ```{0,1,1}``` which means that any date delta must be the date ```{0,1,1}``` applied to the intuitive magic number of units of time. In the case of two weeks, that's 14 days added to the days item of the zeroth day.
 
 And look at that! the ```ago``` function does some sort of subtraction from the current time.
 
