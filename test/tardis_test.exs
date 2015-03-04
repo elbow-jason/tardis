@@ -55,6 +55,25 @@ defmodule TardisConversionTest do
     assert 1 |> days_to_date |> to_days == 1
   end
 
+end
+
+
+defmodule TardisDeltaTest do
+  use ExUnit.Case
+  import Tardis.Delta
+
+  #this test could fail on occasion... if the clock changes between calculations
+  test "ago returns a delta of specified time into the past" do
+    {{year, mon, day},{hr, min, sec}} = :calendar.universal_time()
+    assert {{0, 1, 1}, {0, 0, 0}} |> ago == {{year, mon, day},{hr, min, sec}}
+    assert {{0, 1, 1}, {0, 0, 1}} |> ago == {{year, mon, day},{hr, min, sec - 1}}
+  end
+
+  test "from_now returns a delta of specified time into the future" do
+    {{year, mon, day},{hr, min, sec}} = :calendar.universal_time()
+    assert {{0, 1, 1}, {0, 0, 0}} |> from_now == {{year, mon, day}, {hr, min, sec}}
+    assert {{0, 1, 1}, {0, 0, 1}} |> ago == {{year, mon, day},{hr,  min, sec - 1}}
+
 
 
 end
